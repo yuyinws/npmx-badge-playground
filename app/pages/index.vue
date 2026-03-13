@@ -62,7 +62,7 @@ function buildBadgeUrl(type: BadgeType) {
     return ''
   }
 
-  const base = `https://npmx.dev/api/registry/badge/${type}/${encodeURIComponent(normalizedPackageName.value)}`
+  const base = `https://npmx.dev/api/registry/badge/${type}/${normalizedPackageName.value}`
   const params = new URLSearchParams()
 
   if (config.value.useLabelColor) {
@@ -92,7 +92,7 @@ function buildPackageUrl() {
     return ''
   }
 
-  return `https://npmx.dev/package/${encodeURIComponent(normalizedPackageName.value)}`
+  return `https://npmx.dev/package/${normalizedPackageName.value}`
 }
 
 function buildMarkdown(type: BadgeType) {
@@ -208,7 +208,7 @@ watch(
         error?: boolean
         statusCode?: number
         message?: string
-      }>(`https://npm.antfu.dev/${encodeURIComponent(packageName)}`)
+      }>(`https://npm.antfu.dev/${packageName}`)
 
       if (requestId !== packageCheckRequestId) {
         return
