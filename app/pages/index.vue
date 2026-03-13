@@ -162,7 +162,10 @@ watchEffect(async () => {
   const { codeToHtml } = await import('shiki')
   highlightedMarkdownCode.value = await codeToHtml(markdownCode.value, {
     lang: 'markdown',
-    theme: 'vitesse-light'
+    themes: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark'
+    }
   })
 })
 
@@ -411,7 +414,11 @@ function onPreviewImageSettled() {
       </div>
     </UCard>
 
-    <UCard>
+    <UCard
+      :ui="{
+        footer: 'bg-muted'
+      }"
+    >
       <template #header>
         <div class="flex items-center gap-2">
           <UIcon
@@ -497,25 +504,29 @@ function onPreviewImageSettled() {
               >
             </div>
           </div>
-
-          <div class="relative group/code">
-            <UButton
-              icon="i-lucide-copy"
-              size="xs"
-              color="neutral"
-              variant="soft"
-              class="absolute top-2 right-2 z-10 opacity-0 transition-opacity group-hover/code:opacity-100"
-              @click="copyMarkdownCode"
-            />
-            <!-- eslint-disable vue/no-v-html -->
-            <div
-              class="overflow-auto rounded-md border border-default max-h-150"
-              v-html="highlightedMarkdownCode"
-            />
-            <!-- eslint-enable vue/no-v-html -->
-          </div>
         </div>
       </div>
+
+      <template #footer>
+        <div class="space-y-2">
+          <div class="flex items-center justify-end">
+            <UButton
+              icon="i-lucide-copy"
+              size="sm"
+              color="neutral"
+              variant="soft"
+              label="Copy"
+              @click="copyMarkdownCode"
+            />
+          </div>
+          <!-- eslint-disable vue/no-v-html -->
+          <div
+            class="overflow-auto rounded-md h-150"
+            v-html="highlightedMarkdownCode"
+          />
+          <!-- eslint-enable vue/no-v-html -->
+        </div>
+      </template>
     </UCard>
   </div>
 </template>
@@ -523,6 +534,14 @@ function onPreviewImageSettled() {
 <style>
 .shiki {
   text-wrap: auto;
-  padding: 1rem;
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+.vitesse-light, .vitesse-dark {
+  background-color: transparent!important;
 }
 </style>

@@ -42,7 +42,7 @@ useSeoMeta({
         <UColorModeButton />
 
         <UButton
-          to="https://github.com/yuyinws/npmx-badges"
+          to="https://github.com/yuyinws/npmx-badge-playground"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
@@ -67,7 +67,7 @@ useSeoMeta({
 
       <template #right>
         <UButton
-          to="https://github.com/yuyinws/npmx-badges"
+          to="https://github.com/yuyinws/npmx-badge-playground"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
