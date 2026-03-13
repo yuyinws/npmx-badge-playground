@@ -6,6 +6,26 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
+  app: {
+    head: {
+      title: 'Npmx Badges Playground',
+      htmlAttrs: {
+        lang: 'en'
+      },
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'A playground for npmx badges.' },
+        { property: 'og:title', content: 'Npmx Badges Playground' },
+        { property: 'og:description', content: 'A playground for npmx badges.' },
+        { property: 'og:image', content: 'https://npmx-badge.vercel.app/og-image.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: 'https://npmx-badge.vercel.app/og-image.png' }
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico' }
+      ]
+    }
+  },
 
   css: ['~/assets/css/main.css'],
 
