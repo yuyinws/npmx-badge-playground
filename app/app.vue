@@ -34,7 +34,11 @@
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+          Learn more about <nuxt-link
+            class="text-primary hover:underline"
+            to="https://docs.npmx.dev/guide/features#custom-badges"
+            target="_blank"
+          >npmx badges</nuxt-link>
         </p>
       </template>
 
