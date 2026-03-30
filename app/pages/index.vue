@@ -15,10 +15,6 @@ const BADGE_TYPE_GROUPS = [
   {
     title: 'Security & Status',
     items: ['vulnerabilities', 'deprecated']
-  },
-  {
-    title: 'Quality Scores',
-    items: ['quality', 'popularity', 'maintenance', 'score']
   }
 ]
 
